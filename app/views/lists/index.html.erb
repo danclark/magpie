@@ -1,7 +1,11 @@
 <div>Lists</div>
 
 <ol>
-	<% @lists.each do |list| %>
-		<li><%= list.name %> (<%= list.size %>)</li>
+	<% if !@lists.empty? %>
+		<% @lists.each do |list| %>
+			<li><%= list.name %> (<%= list.item_count  %>)</li>
+		<% end %>
+	<% else %>
+		<div>No lists</div>
 	<% end %>
 </ol>
