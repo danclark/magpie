@@ -1,0 +1,8 @@
+<h1>New User</h1>
+
+<%= form_for @user do |f| %>
+	<div>
+		<%= f.label :email, 'Email' %>
+		<%= f.text_field :email %>
+	</div>
+<% end %>
