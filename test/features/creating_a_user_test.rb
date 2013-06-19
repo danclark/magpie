@@ -1,6 +1,10 @@
 require "test_helper"
-
 feature 'Signup Feature Test' do
+
+	before :each do
+		User.delete_all
+	end
+
   scenario 'signing up with valid data' do
   	user = FactoryGirl.build :user
 		create_user(user)
