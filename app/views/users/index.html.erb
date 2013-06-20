@@ -1,7 +1,12 @@
 <h1>Users</h1>
 
-<ul>
-	<% @users.each do |u| %>
-		<li><%= u.username =%> (<%= u.email %>)</li>
-	<% end %>
-</ul>
+
+<% if @users.empty? %>
+	<h2>No Users Found</h2>
+<% else %> 	
+	<ul>
+		<% @users.each do |u| %>
+			<li><%= u.username =%> (<%= u.email %>)</li>
+		<% end %>
+	</ul>
+<% end %>
