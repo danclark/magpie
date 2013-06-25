@@ -44,6 +44,14 @@ describe User do
 			user.valid?.wont_equal true
 			user.errors[:password].must_include "doesn't match confirmation"
 		end
+	end
 
+	describe 'associations' do
+		it 'can have many wishlists' do
+			user = FactoryGirl.create :user
+			wishlist = FactoryGirl.create :wishlist
+			user.wishlists << wishlist
+			user.wishlists.count.must_equal 1
+		end
 	end
 end
