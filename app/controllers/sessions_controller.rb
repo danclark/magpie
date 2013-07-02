@@ -5,6 +5,11 @@ class SessionsController < ApplicationController
 
 	def create
 		@user = login(params[:user][:email], params[:user][:password])
-		redirect_to root_path
+		unless @user
+			@user = User.new
+			flash[:error] = 'Invalid email or password'
+			render :new and return
+		end
+		redirect_to lists_path, notice: "Welcome #{@user.name}"
 	end
 end
