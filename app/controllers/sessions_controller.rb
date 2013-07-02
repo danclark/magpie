@@ -12,4 +12,9 @@ class SessionsController < ApplicationController
 		end
 		redirect_to lists_path, notice: "Welcome #{@user.name}"
 	end
+
+	def destroy
+		logout
+		redirect_to signin_path
+	end
 end

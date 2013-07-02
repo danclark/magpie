@@ -4,6 +4,9 @@ Magpie::Application.routes.draw do
 
 	resources :sessions, only: [:create]
 	match '/signin' => 'sessions#new'
+	match '/signout' => 'sessions#destroy'
 
 	resources :lists, only: [:index, :show]
+
+	root to: redirect('/signup')
 end

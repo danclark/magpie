@@ -3,7 +3,7 @@ require 'test_helper'
 feature 'Sign Out Feature Test' do
 	before do
 		signin FactoryGirl.create(:user)
-		visit root_path
+		visit lists_path 
 	end
 
 	scenario 'signing out clears the current user' do
